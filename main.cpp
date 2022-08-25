@@ -12,6 +12,8 @@ enum ProgramMode {
 };
 
 int main(int argc, char *argv[]) {
+    const int MAXIMUM_LENGTH_OF_THE_FILENAME = 1000;
+    
     ProgramMode mode = SOLVE;
     if (argc >= 2 && argv[1][0] == '-' && argv[1][2] == '\0' &&
                                 (argv[1][1] == 't' || argv[1][1] == 'r' || argv[1][1] == 'f' || argv[1][1] == 's'))
@@ -81,7 +83,10 @@ int main(int argc, char *argv[]) {
         }
         case UNIT_TEST_OF_THE_FILE:
         {
-            (TestEquation("C:\\Users\\penko\\CLionProjects\\Equation\\TestCases.txt")) ? printf("All tests had been passed\n") : printf("Not all tests had been passed\n");
+            printf("Enter the path to the file with tests:\n");
+            char filename[MAXIMUM_LENGTH_OF_THE_FILENAME] = "";
+            scanf("%s", filename")
+            (TestEquation(filename)) ? printf("All tests had been passed\n") : printf("Not all tests had been passed\n");
             break;
         }
     }
