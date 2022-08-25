@@ -2,7 +2,6 @@
 #include "UnitTestEquation.h"
 #include "enumberOfRoots.h"
 #include "stdio.h"
-#include "string.h"
 
 enum ProgramMode {
     UNIT_TEST = 0,
