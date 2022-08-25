@@ -85,7 +85,7 @@ int main(int argc, char *argv[]) {
         {
             printf("Enter the path to the file with tests:\n");
             char filename[MAXIMUM_LENGTH_OF_THE_FILENAME] = "";
-            scanf("%s", filename")
+            scanf("%s", filename);
             (TestEquation(filename)) ? printf("All tests had been passed\n") : printf("Not all tests had been passed\n");
             break;
         }
