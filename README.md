@@ -10,7 +10,7 @@ The program can solve square equations and has its own tests
 
 ![image](https://user-images.githubusercontent.com/112069471/186616474-fe5e3766-0de6-4404-9a73-a41edbece475.png)
 
-![image](https://user-images.githubusercontent.com/112069471/186616811-61d6e902-3143-4dd2-b817-2d26fbba3f24.png)
+![image](https://user-images.githubusercontent.com/112069471/186622289-1ccf58f0-7594-469f-90b2-7b7c7387fa1f.png)
 
 
 -----------------------------------------------------------------------------------------------------------
