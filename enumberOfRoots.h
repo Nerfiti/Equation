@@ -8,4 +8,4 @@ enum NumberOfRoots_t {
     INF_ROOTS = -1,
 };
 
-#endif
+#endif // ENUMBEROFROOTS_H
