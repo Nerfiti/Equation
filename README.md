@@ -15,7 +15,7 @@ The program can solve square equations and has its own tests
 
 -----------------------------------------------------------------------------------------------------------
 
-When running from the command line:
+Command line flags:
 
 flag -t start the program with mode UNIT_TEST (Automatically standart tests)
 
