@@ -8,6 +8,15 @@
 
 The program can solve square equations and has its own tests.
 
+Examples of the program are shown in the screenshot below:
+
+![image](https://user-images.githubusercontent.com/112069471/187084073-97612fa3-bd50-4337-bedb-f57c6183ce73.png)
+
+Testing of the file "TestCases.txt":
+
+![image](https://user-images.githubusercontent.com/112069471/187084100-6120ce0d-95be-43db-afb2-183037614e6d.png)
+
+
 -----------------------------------------------------------------------------------------------------------
 
 Command line flags:
@@ -38,7 +47,7 @@ Sixth number - number of roots (-1, if the number of answers is infinite).
 
 -----------------------------------------------------------------------------------------------------------
 
-Documentation in zip archive htmldoc/html/index.html.
+Documentation is in zip archive htmldoc/html/index.html.
 
 -----------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------
