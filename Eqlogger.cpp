@@ -1,51 +1,46 @@
 #include "Eqlogger.h"
-#include "stdio.h"
-#include "time.h"
-#include "string.h"
 
-FILE *fp = fopen("logs.txt", "w");
-
-void startProgramLog()
+void startProgramLog(FILE *logfile)
 {
-    fprintf(fp, "[Info] Program started.\n");
+    fprintf(logfile, "[Info] Program started.\n");
 }
 
-void endProgramLog()
+void endProgramLog(FILE *logfile)
 {
-    fprintf(fp, "[Info] Program ended.\n");
-    fclose(fp);
+    fprintf(logfile, "[Info] Program ended.\n");
 }
 
-void inputLog(int numberOfVariables)
+void inputLog(FILE *logfile, int numberOfVariables)
 {
-    fprintf(fp, "[Info] User entered the data. Set %d variable(-s): ", numberOfVariables);
+    fprintf(logfile, "[Info] User entered the data. Set %d variable(-s): ", numberOfVariables);
 }
 
-void outputLog(char *output)
+void outputLog(FILE *logfile, const char *output)
 {
-    fprintf(fp, "[Info] Program output: %s\n", output);
+    printf(output);
+    fprintf(logfile, "[Info] Program output: %s\n", output);
 }
 
-void openFileLog(char *filename)
+void openFileLog(FILE *logfile, const char *filename)
 {
-    fprintf(fp, "[Info] File opened: %s\n", filename);
+    fprintf(logfile, "[Info] File opened: %s\n", filename);
 }
 
-void closeFileLog(char *filename)
+void closeFileLog(FILE *logfile, const char *filename)
 {
-    fprintf(fp, "[Info] File closed: %s\n", filename);
+    fprintf(logfile, "[Info] File closed: %s\n", filename);
 }
 
-void textToLog(TypeLogMessage_t type, char *text)
+void textToLog(FILE *logfile, TypeLogMessage type, const char *text)
 {
     if (type == EMPTY)
-        fprintf(fp, "%s", text);
+        fprintf(logfile, "%s", text);
     if (type == INFO)
-        fprintf(fp, "%s %s", "[Info]", text);
+        fprintf(logfile, "%s %s", "[Info]", text);
     if (type == ERROR)
-        fprintf(fp, "%s %s", "[Error]", text);
+        fprintf(logfile, "%s %s", "[Error]", text);
     if (type == COMPLETE)
-        fprintf(fp, "%s %s", "[Complete]", text);
+        fprintf(logfile, "%s %s", "[Complete]", text);
     if (type == FAIL)
-        fprintf(fp, "%s %s", "[Fail]", text);
+        fprintf(logfile, "%s %s", "[Fail]", text);
 }

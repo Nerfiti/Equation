@@ -7,11 +7,12 @@
 //-----------------------------------------------------------------------
 //! Read coefficients from stdin
 //!
+//! \param logfile pointer to the file with program logs
 //! \param [out] a Pointer on the first coefficient
 //! \param [out] b Pointer on the second coefficient
 //! \param [out] c Pointer on the third coefficient
 //-----------------------------------------------------------------------
-void inputCoefficients(double *a, double *b, double *c);
+void inputCoefficients(FILE *logfile, double *a, double *b, double *c);
 
 //-----------------------------------------------------------------------
 //! Solve square equation ax^2 + bx + c = 0
@@ -24,7 +25,7 @@ void inputCoefficients(double *a, double *b, double *c);
 //!
 //! \return NO_ROOTS, ONE_ROOT, TWO_ROOTS or INF_ROOTS
 //-----------------------------------------------------------------------
-NumberOfRoots_t solveSquare(double a, double b, double c, double *x1, double *x2);
+NumberOfRoots solveSquare(double a, double b, double c, double *x1, double *x2);
 
 //-----------------------------------------------------------------------
 //! Solve linear equation ax + b = 0
@@ -35,7 +36,7 @@ NumberOfRoots_t solveSquare(double a, double b, double c, double *x1, double *x2
 //!
 //! \return NO_ROOTS, ONE_ROOT, or INF_ROOTS
 //-----------------------------------------------------------------------
-NumberOfRoots_t solveLinear(double a, double b, double *ans);
+NumberOfRoots solveLinear(double a, double b, double *ans);
 
 //-----------------------------------------------------------------------
 //!
@@ -52,11 +53,12 @@ double discriminant(double a, double b, double c);
 //-----------------------------------------------------------------------
 //! Write answer of the equation to stdout
 //!
+//! \param logfile pointer to the file with program logs
 //! \param [in] nRoots Number of the Roots
 //! \param [in] root1 First root
 //! \param [in] root2 Second root
 //-----------------------------------------------------------------------
-void printAnswer(NumberOfRoots_t nRoots, double root1, double root2);
+void printAnswer(FILE *logfile, NumberOfRoots nRoots, double root1, double root2);
 
 //-----------------------------------------------------------------------
 //! Write answer of the equation to target
@@ -66,16 +68,17 @@ void printAnswer(NumberOfRoots_t nRoots, double root1, double root2);
 //! \param [in] root1 First root
 //! \param [in] root2 Second root
 //-----------------------------------------------------------------------
-void sPrintAnswer(char *target, NumberOfRoots_t nRoots, double root1, double root2);
+void sPrintAnswer(char *target, NumberOfRoots nRoots, double root1, double root2);
 
 //-----------------------------------------------------------------------
-//! Calculate sign of double variable and if -epsilon < variable < epsilon, set value of this variable on '0'
+//! Compare two double variables
 //!
-//! \param [in,out] var Pointer to variable
+//! \param [in] a First number
+//! \param [in] b Second number
 //!
-//! \return -1, 0 or 1
+//! \return 1 (if a > b), 0 (if a == b) -1 (if a < b)
 //-----------------------------------------------------------------------
-bool areEqualDoubleNumbers(double a, double b);
+int compareDoubleNumbers(double a, double b);
 
 #endif // SOLVEEQUATION_H
 

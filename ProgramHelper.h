@@ -3,8 +3,8 @@
 
 #include "Eqlogger.h"
 
-enum ProgramMode_t {
-    BREAK = -1,
+enum ProgramMode {
+    HELP = -1,
     UNIT_TEST = 0,
     UNIT_TEST_OF_THE_FILE = 1,
     RANDOM_TEST = 2,
@@ -14,12 +14,13 @@ enum ProgramMode_t {
 //--------------------------------------------------------------------
 //! Get program mode
 //!
+//! \param logfile pointer to the file with program logs
 //! \param argc number of cmd argument
-//! \param argv massive of the char* arguments
+//! \param argv massive of the char* cmd arguments
 //!
 //! \return program mode
 //-------------------------------------------------------------------
-ProgramMode_t getProgramMode(int argc, const char **argv);
+ProgramMode getProgramMode(FILE *logfile, int argc, const char **argv);
 
 //--------------------------------------------------------------------
 //! Get helper info

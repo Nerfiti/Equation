@@ -3,7 +3,7 @@
 
 #include "stdio.h"
 
-enum TypeLogMessage_t {
+enum TypeLogMessage {
     EMPTY,
     INFO,
     ERROR,
@@ -14,26 +14,26 @@ enum TypeLogMessage_t {
 //---------------------------------------------------------
 //! Get start program log
 //---------------------------------------------------------
-void startProgramLog();
+void startProgramLog(FILE *logfile);
 
 //---------------------------------------------------------
 //! Get end program log
 //---------------------------------------------------------
-void endProgramLog();
+void endProgramLog(FILE *logfile);
 
 //---------------------------------------------------------
 //! Get input log
 //!
 //! \param [in] numberOfVariables number of variables
 //---------------------------------------------------------
-void inputLog(int numberOfVariables);
+void inputLog(FILE *logfile, int numberOfVariables);
 
 //---------------------------------------------------------
 //! Get output log
 //!
 //! \param [in] output output text
 //---------------------------------------------------------
-void outputLog(char *output);
+void outputLog(FILE *logfile, const char *output);
 
 //---------------------------------------------------------
 //! Get test complete log
@@ -46,17 +46,17 @@ void outputLog(char *output);
 //!
 //! \param filename name of opened file
 //---------------------------------------------------------
-void openFileLog(char *filename);
+void openFileLog(FILE *logfile, const char *filename);
 
 //---------------------------------------------------------
 //! Get close file log
 //!
 //! \param filename name of opened file
 //---------------------------------------------------------
-void closeFileLog(char *filename);
+void closeFileLog(FILE *logfile, const char *filename);
 
 //---------------------------------------------------------
 //! Get log with given text
-void textToLog(TypeLogMessage_t type, char *text);
+void textToLog(FILE *logfile, TypeLogMessage type, const char *text);
 
 #endif // EQLOGGER_H

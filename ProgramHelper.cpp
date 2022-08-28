@@ -1,7 +1,7 @@
 #include "ProgramHelper.h"
 #include "stdio.h"
 
-ProgramMode_t getProgramMode(int argc, const char **argv)
+ProgramMode getProgramMode(FILE *logfile, int argc, const char **argv)
 {
     if (argc >= 2)
     {
@@ -9,42 +9,54 @@ ProgramMode_t getProgramMode(int argc, const char **argv)
         {
             case 'h':
             {
-                textToLog(INFO, "The user requested help information\n");
-                return BREAK;
+                textToLog(logfile, INFO, "The user requested help information\n");
+                return HELP;
             }
             case 't':
             {
-                textToLog(INFO, "The user chose the program mode: UNIT_TEST\n");
+                textToLog(logfile, INFO, "The user chose the program mode: UNIT_TEST\n");
                 return UNIT_TEST;
             }
             case 'r':
             {
-                textToLog(INFO, "The user chose the program mode: RANDOM_TEST\n");
+                textToLog(logfile, INFO, "The user chose the program mode: RANDOM_TEST\n");
+                if (argc < 3)
+                {
+                    printf("Error: not enough arguments.\n");
+                    textToLog(logfile, ERROR, "The user did not enter enough arguments.\n");
+                    return HELP;
+                }
                 return RANDOM_TEST;
             }
             case 'f':
             {
-                textToLog(INFO, "The user chose the program mode: UNIT_TEST_OF_THE_FILE\n");
+                textToLog(logfile, INFO, "The user chose the program mode: UNIT_TEST_OF_THE_FILE\n");
+                if (argc < 3)
+                {
+                    printf("Error: not enough arguments.\n");
+                    textToLog(logfile, ERROR, "The user did not enter enough arguments.\n");
+                    return HELP;
+                }
                 return UNIT_TEST_OF_THE_FILE;
             }
             case 's':
             {
-                textToLog(INFO, "The user chose the program mode: SOLVE\n");
+                textToLog(logfile, INFO, "The user chose the program mode: SOLVE\n");
                 return SOLVE;
             }
             default:
             {
-                textToLog(ERROR, "The user chose non-existent program mode.\n");
+                textToLog(logfile, ERROR, "The user chose non-existent program mode.\n");
                 printf("Error: the flag does not exist\n");
-                return BREAK;
+                return HELP;
             }
         }
     }
     else
     {
-        printf("Error: Not enough arguments");
-        textToLog(ERROR, "The user did not enter enough arguments.\n");
-        return BREAK;
+        printf("Error: Not enough arguments.\n");
+        textToLog(logfile, ERROR, "The user did not enter enough arguments.\n");
+        return HELP;
     }
 }
 
@@ -62,7 +74,7 @@ void helperMode()
                    "\n"
                    "-----------------------------------------------------------------------------------------------------------\n"
                    "\n"
-                   "When running from the command line:\n"
+                   "Command line flags:\n"
                    "\n"
                    "flag -t start the program with mode UNIT_TEST (Automatically standart tests)\n"
                    "flag -r start the program with mode RANDOM_TEST (You can get input and output and can compare it)\n"

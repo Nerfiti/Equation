@@ -1,7 +1,7 @@
 #ifndef ENUMBEROFROOTS_H
 #define ENUMBEROFROOTS_H
 
-enum NumberOfRoots_t {
+enum NumberOfRoots {
     NO_ROOTS = 0,
     ONE_ROOT = 1,
     TWO_ROOTS = 2,
