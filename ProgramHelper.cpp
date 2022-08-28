@@ -41,6 +41,12 @@ ProgramMode getProgramMode(FILE *logfile, int argc, const char **argv)
             }
             case 's':
             {
+                if (argc < 5)
+                {
+                    printf("Error: not enough arguments.\n");
+                    textToLog(logfile, ERROR, "The user did not enter enough arguments.\n");
+                    return HELP;
+                }
                 textToLog(logfile, INFO, "The user chose the program mode: SOLVE\n");
                 return SOLVE;
             }

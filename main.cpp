@@ -8,7 +8,7 @@
 
 const int MAXIMUM_LENGTH_OF_THE_FILENAME = 1000;
 
-int main(int argc, const char **argv)
+int main(const int argc, const char **argv)
 {
     FILE *logfile = fopen("logs.txt", "w");
     startProgramLog(logfile);
@@ -23,9 +23,9 @@ int main(int argc, const char **argv)
     {
         case SOLVE:
         {
+            assert(argc > 4);
             textToLog(logfile, INFO, "The program works in the mode SOLVE\n");
-            inputCoefficients(logfile, &a, &b, &c);
-            NumberOfRoots nRoots = solveSquare(a, b, c, &x1, &x2);
+            NumberOfRoots nRoots = solveSquare(atof(argv[2]), atof(argv[3]), atof(argv[4]), &x1, &x2);
             printAnswer(logfile, nRoots, x1, x2);
             break;
         }

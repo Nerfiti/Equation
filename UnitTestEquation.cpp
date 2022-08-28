@@ -163,7 +163,7 @@ void RandomTestEquation(FILE *logfile, int num)
                x2 = 0;
         NumberOfRoots nRoots = solveSquare(a, b, c, &x1, &x2);
         sPrintAnswer(answers, nRoots, x1, x2);
-        printf("Input: a = %6lg, b = %6lg, c = %6lg. Output: %s\n", a, b, c, answers);
+        printf("Input: a = %7lg, b = %7lg, c = %7lg. Output: %s\n", a, b, c, answers);
     }
 }
 
